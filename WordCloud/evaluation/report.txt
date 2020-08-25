@@ -1,0 +1,194 @@
+-------------------------------------------------------------------------------
+HW 1 Grading
+Score: 74 out of 100 points
+
+==> 10 points
+
+
+------------------------------------------
+          Feedback from code review
+------------------------------------------
+There are a lot of problems with your submission. It's great that you're going to tutoring and getting help. However, I'm the person in the best position to help you. I know the different approaches that you can take as I assigned the homework. Please know that and come see me. 
+
+
+------ contributions.txt
+Christian Lam - 55
+Gideon Essel - 45
+
+
+------ JavaDoc Comments: 12 out of 15 points
+
+WordFrequency:
+- Insufficient description of getWord() and getFrequency(). You need to explain what the value returned represents. Simply saying "strin value" does not provide any information
+
+- Incorrect description of equals():  "@param otherObject the title of the web page"
+  - seems to have been copied from somewhere... Or otherwise, why is it saying anything about "title of the web page"?
+
+DebateWordCloud:
++ class comment with description and @author
+
++ method comments with appropriate @param
+
+- Missing @throws clause (see textbook, appendix F, A-46)
+
+
++ Good comments throughout, though some of them are redundant because the code itself is descriptive enough. Here's one example:
+    debate.increaseFrequency(); // increases each words frequency 
+
+ . It's clear from the code since you used a descriptive method name what is to happen.
+
+
+
+
+------ WordFrequency class: 22 out of 25 points
+
+
+Instance variables: Good
+
+Constructors
+- Use the throws clause 
+
+. Always include a message when throwing an exception
+. To avoid repetitive code, call one constructor from another. E.g. the constructor that takes a single parameter can call the one with two parameters so all you would need is one instruction for that parameter:
+   this(word, 1);
+
+- Unnecessary condition in the first constructor:  wordFrequency < 0
+  . that condition is always false since the variable is assigned 0, the default value assigned by Java
+
+Methods:
+
+- incrementFrequency() is a mutator and should not return any value. 
+
+
+
+
+------ DebateWordCloud class: 40 out of 60 points
+
+
+. In the future, design classes with instance variables, not class variables (static) as you've done in this homework.
+
+
+Style
+
+Requirement: variable names should not include the type of value
+- arrayListWords
+
+Requirement: avoid literal values
+ - literal values:  40, ... are in multiple places in your code
+ - Instead of defining named constants for 0 and 39, you need to define one constant for the MAXIMUM_WORDS_IN_CLOUD
+
+- Incorrect indentation
+ - Lines 65-87
+ - Lines 201-233, 207-216 and 212-216
+ - Line 229
+ - Lines 277-284
+ ... etc ...  You need to be more cautious of your indentation. It is graded. 
+
+Avoid abbreviating names
+  - removePunc()
+
+Requirement: Use descriptive names
+ - frequencyWord: this name implies it's one word, but in fact its datatype is ArrayList<WordFrequency>
+
+
+
+Requirement: "Use descriptive names... Method names should start with a verb since the methods perform a task"
+ - stopWordsFile()
+
+
+Some class/instance variables need to be local to a method
+- stopWords is only used in method stopWordsFile()Requirement: avoid literal values
+
+- arrayListWords is only used in main()
+
+- skipsFirstLine, replaceTop  both are only used in getTopWords()
+
+
+
+main()
+
+Requirement: "Do not assume the files exist and be sure to handle exceptions to have a good user experience."
+- You're expected to try/catch instead of having your program exit abruptly and have the user face the exception errors and stack trace that only programmers can understand.
+
+
+Requirement: "The optional fourth argument is the name of the output file. If this argument is not provided, then the default output file name is created from the speaker name"
+- Not implemented. This was not optional for you to implement. It's optional for the user running the program to supply.
+
+
+- Line 73: incorrectly creating an ArrayList that will then be thrown away in the next instruction
+
+
+
+parseFile()
+. Line 122 (and elsewhere): Rather than contains(), you should use startsWith() since you want to know if the line starts with the speaker
+
+
+removePunc()
+. This should have been done when the file was being scanned
+
+. There are better ways to do this, such as keeping only letters and spaces. That's much easier to code than to exhaustively figure out what to remove
+
+. Need to use a pattern for commentary like (APPLAUSE). Such commentary is in parenthesis and in all uppercase.
+
+
+
+stopWordsFile()
+- Lines 161-167: this is a linear search that you need to program to stop once you found what you're looking for!
+
+- Avoid "reinventing the wheel". Lines 161-167 is checking whether or no j is one of the stop words. Use the contains() method of ArrayList!
+
+- Line 165 may set j to the empty string... which you then add to keyWords at line 169! Why?
+
+
+
+increaseFrequency()
++ Ok
+
+- Avoid "reinventing the wheel". Lines 207-217... use indexOf() to search the frequencyWord ArrayList for the keyWords.get(i). 
+
+
+
+getTopWords()
+. "Caleb helped explain to us ... "
+==> Good citation
+!!! However, evaluating the code, it seems it was more than just an explanation. The code submitted has so many similarities that I cannot rule out that Caleb likely showed or gave you the code. 
+!!! I met you about this already. Please submit original work. It seems in this case, you showed your code to Caleb which is not allowed. Then, it seems Caleb was literally telling you what code to enter. That code was based on his solution which is also not allowed as he's literally giving you his solution
+
+
+- Incorrectly using == or != to compare String objects, when you should use the equals() method:  lines 265, 272
+
+"skip the very first word which is a space"
+ - A space should not have been in the ArrayList, that's the semantic error made. You should have found a way to solve that, instead of writing code to skip the space.
+
+!! Logic error: Loop (!?) at line 274 never iterates because the value of replaceTop is false and the only place it is changed to true is inside the loop, but that instruction never executes since the loop body never iterates.
+
+
+
+------------------------------------------
+        Result from running program
+------------------------------------------
+**********
+Testing non-existing debate file **********
+Exception in thread "main" java.io.FileNotFoundException: doesnotexist.txt (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.util.Scanner.<init>(Scanner.java:639)
+	at cecs274.DebateWordCloud.parseFile(DebateWordCloud.java:101)
+	at cecs274.DebateWordCloud.main(DebateWordCloud.java:65)
+Exception in thread "main" java.io.FileNotFoundException: non-existing-file (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.util.Scanner.<init>(Scanner.java:639)
+	at cecs274.DebateWordCloud.stopWordsFile(DebateWordCloud.java:144)
+	at cecs274.DebateWordCloud.main(DebateWordCloud.java:69)
+**********
+Testing non-existing speaker **********
+Exception in thread "main" java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at cecs274.DebateWordCloud.main(DebateWordCloud.java:78)

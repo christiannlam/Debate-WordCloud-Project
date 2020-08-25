@@ -1,0 +1,47 @@
+**********
+Output of: mvn install **********
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building HW1-DebateWordCloud 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ hw1-perfect-candidate ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/amonge/Downloads/hw1/hw1-Oct-05-2019-0925am-section11/hw1-Gideon-Christian/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ hw1-perfect-candidate ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /Users/amonge/Downloads/hw1/hw1-Oct-05-2019-0925am-section11/hw1-Gideon-Christian/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ hw1-perfect-candidate ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/amonge/Downloads/hw1/hw1-Oct-05-2019-0925am-section11/hw1-Gideon-Christian/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ hw1-perfect-candidate ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ hw1-perfect-candidate ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ hw1-perfect-candidate ---
+[INFO] Building jar: /Users/amonge/Downloads/hw1/hw1-Oct-05-2019-0925am-section11/hw1-Gideon-Christian/target/hw1-perfect-candidate-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ hw1-perfect-candidate ---
+[INFO] Installing /Users/amonge/Downloads/hw1/hw1-Oct-05-2019-0925am-section11/hw1-Gideon-Christian/target/hw1-perfect-candidate-1.0-SNAPSHOT.jar to /Users/amonge/.m2/repository/cecs274/hw1/hw1-perfect-candidate/1.0-SNAPSHOT/hw1-perfect-candidate-1.0-SNAPSHOT.jar
+[INFO] Installing /Users/amonge/Downloads/hw1/hw1-Oct-05-2019-0925am-section11/hw1-Gideon-Christian/pom.xml to /Users/amonge/.m2/repository/cecs274/hw1/hw1-perfect-candidate/1.0-SNAPSHOT/hw1-perfect-candidate-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.757 s
+[INFO] Finished at: 2019-10-14T12:59:12-07:00
+[INFO] Final Memory: 14M/54M
+[INFO] ------------------------------------------------------------------------
+**********
+Output of: java -jar on 2019d2n2-short.txt HARRIS command **********
+**********
+Output of: java -jar on 2019d2n2.txt HARRIS command **********
+**********
+Output of: java -jar on 2019d3-short.txt BIDEN command **********
+**********
+Output of: java -jar on 2019d3.txt BIDEN command **********

@@ -1,0 +1,7 @@
+Christian Lam - 55
+Gideon Essel - 45
+
+Overall to finish the assignment we met up in person and had phone calls to work on this assignment. The WordFrequency.java file was writen by Gideon
+and Christian looked over it and fixed a couple things like the constructors. On the DebateWord cloud class Christian
+wrote all the methods except for the increaseFrequency method. Gideon wrote the increaseFrequency method and implemented alternative suggestions
+for some of the methods Christian worked on, but in the end Christian would implement the methods in a manner that better suited our logic.
